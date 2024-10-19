@@ -1,1 +1,45 @@
+#include<stdio.h>
+#include<math.h>
+// decimal to binary and binary to decimal.
+int dtb();
+int btd();
 
+int main(){
+	printf("choose the type of conversion:  (1) decimal to binary.\n\t\t\t	(2) binary to decimal. = ");
+	int select;
+	scanf("%d",&select);
+	if(select == 1) {
+		dtb();
+	} else { 
+	    btd();
+	}
+	return 0;
+}
+
+int dtb() {
+	int num, rem, temp, sum=0, i=1;
+	printf("\nENTER THE NUMBER: ");
+	scanf("%d",&num);
+	temp=num;
+    do{
+    rem=num%2;
+	sum=sum+rem*i;
+	num=num/2;
+	i=i*10;
+	} while(num>=1);
+	printf("\nTHE BINARY FORM OF %d IS %d.",temp,sum);
+}
+
+int btd(){
+  int num;
+	printf("\nENTER THE BINARY NUMBER: ");
+	scanf("%d", &num);
+	 int sum = 0, i = 1;
+    while(num){
+        int remainder = num % 10;
+        sum += remainder * i;
+        i *= 2;
+       num /= 10;
+    }
+printf("\nTHE DECIMAL FORM IS %d", sum);
+} 
